@@ -25,13 +25,22 @@ class Order extends Model
         self::REFUND_STATUS_FAILED     => '退款失败',
     ];
 
+    const TYPE_NORMAL = 'normal';
+    const TYPE_CROWDFUNDING = 'crowdfunding';
+
     public static $shipStatusMap = [
         self::SHIP_STATUS_PENDING   => '未发货',
         self::SHIP_STATUS_DELIVERED => '已发货',
         self::SHIP_STATUS_RECEIVED  => '已收货',
     ];
 
+    public static $typeMap = [
+        self::TYPE_NORMAL => '普通商品订单',
+        self::TYPE_CROWDFUNDING => '众筹商品订单',
+    ];
+
     protected $fillable = [
+        'type',
         'no',
         'address',
         'total_amount',
